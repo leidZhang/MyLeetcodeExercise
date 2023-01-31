@@ -1,6 +1,6 @@
 package math;
 
-public class TwoSum {
+public class TwoSumBF {
     public static void main(String[] args) {
         int[] nums = {3,2,4};
 

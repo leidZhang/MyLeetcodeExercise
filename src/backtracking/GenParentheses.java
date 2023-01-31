@@ -18,7 +18,7 @@ public class GenParentheses {
 
     /**
      * Note:
-     * in very prefix, left > right
+     * in every prefix, left > right
      * in s, left = right
      * */
     public static void backtracking(int left, int right, int n, String s) {
