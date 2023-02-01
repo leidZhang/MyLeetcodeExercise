@@ -30,6 +30,7 @@ public class ThreeSum {
                 int sum = nums[cur]+nums[left]+nums[right];
 
                 if(sum == 0) {
+                    System.out.println(nums[cur] + " " + nums[left] + " " + nums[right]);
                     res.add(Arrays.asList(nums[cur],nums[left++],nums[right--])); // array to list, then put in res
                 } else if (sum > 0) {
                     right--;
