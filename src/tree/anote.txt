@@ -1,0 +1,22 @@
+preorder: mid, left, right
+inorder: left, mid, right
+postorder: left, right, mid
+
+BinaryTreeNode (Java):
+    static class TreeNode {
+        int val;
+        TreeNode left;
+        TreeNode right;
+
+        TreeNode() {
+            // default constructor
+        }
+        TreeNode(int val) {
+            this.val = val;
+        }
+        TreeNode(int val, TreeNode left, TreeNode right) {
+            this.val = val;
+            this.left = left;
+            this.right = right;
+        }
+    }

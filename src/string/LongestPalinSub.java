@@ -1,4 +1,4 @@
-package dynamic_programming;
+package string;
 
 public class LongestPalinSub {
     public static void main(String[] args) {

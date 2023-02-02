@@ -1,0 +1,5 @@
+1. What is the meaning of dp[] and dp[i]? (dp can be 2d array)
+2. What is the recurrence formula?
+3. How to initialize dp[]?
+4. What is the traverse order?
+5. Print dp to find problems
