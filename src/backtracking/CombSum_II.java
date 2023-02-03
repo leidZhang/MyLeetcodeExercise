@@ -6,7 +6,7 @@ import java.util.List;
 
 public class CombSum_II {
     static List<List<Integer>> res = new ArrayList<>();
-    static List<Integer> cur = new ArrayList<>();
+    static List<Integer> path = new ArrayList<>();
 
     public static void main(String[] args) {
         int[] candidates = {10,1,2,7,6,1,5};
@@ -16,21 +16,23 @@ public class CombSum_II {
 
     public static List<List<Integer>> combinationSum2(int[] candidates, int target) {
         Arrays.sort(candidates);
-        dfs(candidates, target, 0);
+        backtracking(candidates, target, 0);
         return res;
     }
 
-    public static void dfs(int[] candidates, int target, int start) {
+    public static void backtracking(int[] candidates, int target, int startIndex) {
+        if (target < 0) return; // sum exceed
         if (target == 0) {
-            res.add(new ArrayList<>(cur));
-        } else {
-            for (int i = start; i < candidates.length; i++) {
-                if (candidates[i] > target) break;
-                if (i > start && candidates[i - 1] == candidates[i]) continue; // avoid duplicate
+            res.add(new ArrayList<>(path));
+            return;
+        }
 
-                cur.add(candidates[i]);
-                dfs(candidates, target - candidates[i], i + 1);
-                cur.remove(cur.size() - 1);
+        for (int i=startIndex; i<candidates.length; i++) {
+            if (i > startIndex && candidates[i] == candidates[i-1]) continue; // for example, in 1 1 2 5 6 7, skip the second 1
+            if (candidates[i] <= target) {
+                path.add(candidates[i]);
+                backtracking(candidates, target - candidates[i], i + 1);
+                path.remove(path.size() - 1);
             }
         }
     }

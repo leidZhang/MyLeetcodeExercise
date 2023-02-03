@@ -25,9 +25,9 @@ public class CombSum_III {
         }
 
         for (int i=startIndex; i<=9; i++) {
-            path.add(i); sum += i;
-            backtracking(target, k, sum,i + 1);
-            sum -= i; path.remove(path.size() - 1);
+            path.add(i);
+            backtracking(target, k, sum + i,i + 1);
+            path.remove(path.size() - 1);
         }
     }
 }

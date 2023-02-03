@@ -55,7 +55,7 @@ public class SukudoSol {
             board[x][y] = "" + (i + 1); // add to the board
             if (dfs(board, x, y + 1)) return true;
             rows[x][i] = false; cols[y][i] = false; boxs[x / 3][y / 3][i] = false;
-            board[x][y] = ".";
+            board[x][y] = "."; // backtrack
         }
 
         return false;

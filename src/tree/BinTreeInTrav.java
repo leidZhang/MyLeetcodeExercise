@@ -34,10 +34,10 @@ public class BinTreeInTrav {
         return res;
     }
 
-    public static void inorder(List<Integer> res, TreeNode root) { // find left first ?
+    public static void inorder(List<Integer> res, TreeNode root) { // backtracking or dfs
         if (root == null) return; // stop when get to the leaf node
 
-        if (root.left != null) inorder(res, root.left);
+        if (root.left != null) inorder(res, root.left); // find left first ?
         res.add(root.val);
         if (root.right != null) inorder(res, root.right);
     }
