@@ -9,7 +9,7 @@ public class Combinations {
 
     public static void main(String[] args) {
         int n = 4;
-        int k = 2;
+        int k = 3;
         System.out.println(combine(n, k));
     }
 
@@ -24,7 +24,7 @@ public class Combinations {
             return;
         }
 
-        for (int i = startIndex; i <= n; i++) {
+        for (int i = startIndex; i <= n-(k-path.size())+1; i++) { // n -> n-(k-path.size())+1
             path.add(i); // gather data
             backtracking(n, k, i + 1); // i = [startIndex, n]
             path.remove(path.size() - 1);
