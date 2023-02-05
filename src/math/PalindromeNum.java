@@ -23,7 +23,6 @@ public class PalindromeNum {
         if (reverse == x) {
             return true;
         }
-
         return false;
     }
 }

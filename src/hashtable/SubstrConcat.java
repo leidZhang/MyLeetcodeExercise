@@ -9,7 +9,7 @@ public class SubstrConcat {
     // static List<String> combs = new ArrayList<>(); // possible combinations
 
     public static void main(String[] args) {
-        String s = "";
+        String s = "wordgoodgoodbestword";
         String[] words = {"word","good","best","good"};
         System.out.println(findSubstring(s, words));
 
@@ -56,18 +56,4 @@ public class SubstrConcat {
 
         return res;
     }
-
-    /*private static void backtracking(String[] words, int idx, String combine) { // backtracking exercise
-        if (idx == words.length) {
-            combs.add(combine);
-        } else {
-            for (int i=0; i<words.length; i++) {
-                if (!combine.contains(words[i])) { // avoid duplicate
-                    String s = words[i]; combine += s;
-                    backtracking(words, idx+1, combine); // idx is the number of elements in combine
-                    combine = combine.substring(0, combine.lastIndexOf(s)); // cut the last part
-                }
-            }
-        }
-    }*/
 }

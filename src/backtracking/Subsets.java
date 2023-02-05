@@ -1,4 +1,4 @@
-package binarysearch;
+package backtracking;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,7 +18,7 @@ public class Subsets {
     }
 
     public static void backtracking(int[] nums, int startIndex) {
-        res.add(new ArrayList<>(path)); // collect data at each tree nodes
+        res.add(new ArrayList<>(path)); // collect data at every tree nodes
         if (startIndex > nums.length) return;
 
         for (int i=startIndex; i<nums.length; i++) {

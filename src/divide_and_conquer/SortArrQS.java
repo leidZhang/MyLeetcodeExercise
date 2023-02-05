@@ -24,16 +24,15 @@ public class SortArrQS {
     }
 
     private static int partition(int[] nums, int start, int end) {
-        int pivot = start;
-        int left = pivot + 1;
+        int left = start + 1;
         int right = end;
 
         while (left <= right) {
-            while (left <= right && nums[left] <= nums[pivot]) left++; // find the number should in the right of the pivot
-            while (left <= right && nums[right] >= nums[pivot]) right--; // find the number should in the left of the pivot
+            while (left <= right && nums[left] <= nums[start]) left++; // find the number should in the right of the pivot
+            while (left <= right && nums[right] >= nums[start]) right--; // find the number should in the left of the pivot
             if (left <= right) swap(nums, left, right); // swap these 2 numbers to put them into the correct part
         }
-        swap(nums, pivot, right); // swap the pivot to the right place
+        swap(nums, start, right); // swap the pivot to the right place
 
         return right;
     }

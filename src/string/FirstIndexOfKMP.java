@@ -14,7 +14,7 @@ public class FirstIndexOfKMP {
      * (next[j] is the length that j should go back if you changed the original next[])
      * In the example in the main function
      * when i = 5, heystack[5] = b, needle[5] = f, so j should get to position 2, since next[4] = 2
-     * since needle[2] = b = heystack[5], j go to the next position
+     * since needle[2] = b = heystack[5], j go to the next position, j = 3
      * Eventually, all chars match, j = needle.length,
      * the first index of needle in haystack is i - (needle.length() - 1)
      * */
@@ -48,7 +48,7 @@ public class FirstIndexOfKMP {
         next[0] = 0; // init next[]
 
         for (int i=1; i<s.length(); i++) {
-            while (j>0 && s.charAt(j) != s.charAt(i)) { // do not use if!!! get back until the same char is found
+            while (j > 0 && s.charAt(j) != s.charAt(i)) { // do not use if!!! get back until the same char is found
                 j = next[j-1]; // back
             }
             if (s.charAt(j) == s.charAt(i)) j++;
