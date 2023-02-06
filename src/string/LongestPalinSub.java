@@ -39,7 +39,7 @@ public class LongestPalinSub {
      * there are 2 kinds of palindrome, odd and even
      */
     public static String localMaxPalindrome(int leftIndex, int rightIndex, String s) {
-        while (leftIndex >= 0 && rightIndex<s.length() && s.charAt(leftIndex) == s.charAt(rightIndex)) {
+        while (leftIndex >= 0 && rightIndex < s.length() && s.charAt(leftIndex) == s.charAt(rightIndex)) {
             leftIndex--; // expand left
             rightIndex++; // expand right
         }

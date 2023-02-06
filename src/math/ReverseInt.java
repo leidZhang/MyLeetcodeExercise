@@ -2,7 +2,7 @@ package math;
 
 public class ReverseInt {
     public static void main(String[] args) {
-        int x = 1534236469;
+        int x = 534236469;
         System.out.println(reverse(x));
     }
 

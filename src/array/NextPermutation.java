@@ -6,7 +6,7 @@ import java.util.List;
 
 public class NextPermutation {
     public static void main(String[] args) {
-        int[] nums = {1,4,3,2};
+        int[] nums = {2,1,4,3};
         nextPermutation(nums);
 
         for (int i : nums) {
@@ -16,16 +16,16 @@ public class NextPermutation {
 
     public static void nextPermutation(int[] nums) {
         int k = nums.length - 1;
-        while (k > 0 && nums[k-1] >= nums[k]) k--;
+        while (k > 0 && nums[k-1] >= nums[k]) k--; // find the number at left of pivot
 
         if (k <= 0) {
             Arrays.sort(nums); // reverse order
         } else {
             int t = nums.length - 1;
-            while (nums[t] <= nums[k-1]) t--;
+            while (nums[t] <= nums[k-1]) t--; // find the first larger than new pivot from left
 
-            swap(nums, t, k-1);
-            reverse(nums, k, nums.length - 1);
+            swap(nums, t, k-1); // swap these 2 numbers, number at k-1 is the new pivot
+            reverse(nums, k, nums.length - 1); // asc after new pivot
         }
     }
 
@@ -38,8 +38,7 @@ public class NextPermutation {
     public static void reverse(int[] nums, int start, int end) {
         while (start <= end) { // reverse the desc array
             swap(nums, start, end);
-            start++;
-            end--;
+            start++; end--;
         }
     }
 }

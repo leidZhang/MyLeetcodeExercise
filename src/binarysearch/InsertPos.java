@@ -7,16 +7,18 @@ public class InsertPos {
         System.out.println(searchInsert(nums, target));
     }
 
-    public static int searchInsert(int[] nums, int target) { // O(logn) time complexity
-        if (target > nums[nums.length - 1]) return nums.length;
+    public static int searchInsert(int[] nums, int target) { // O(logn) time complexity, consider binary search
+        int left = 0, right = nums.length - 1;
 
-        int left = 0;
-        int right = nums.length - 1;
-
-        while (left < right) { // we are in fact, trying to find the left bound, this is [left, right)
+        while (left <= right) {
             int mid = left + (right - left) / 2;
-            if (nums[mid] >= target) right = mid;
-            else left = mid + 1; // we can also try to find the target, then we have to return mid
+            if (target > nums[mid]) {
+                left = mid + 1;
+            } else if (target < nums[mid]) {
+                right = mid - 1;
+            } else {
+                return mid;
+            }
         }
 
         return left; // return right, if we try to find target using [left, right)
