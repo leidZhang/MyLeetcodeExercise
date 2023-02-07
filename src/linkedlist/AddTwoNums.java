@@ -1,57 +1,32 @@
 package linkedlist;
 
 public class AddTwoNums {
-    public static ListNode addTwoNumbers(ListNode l1, ListNode l2) {
-        ListNode head = new ListNode();
-        ListNode tail = head;
-        boolean flag = false;
-
-        if (l1.val == 0 && l2.val == 0 && l1.next == null && l2.next == null) {
-            return l1;
-        }
-
+    public static ListNode addTwoNumbers(ListNode l1, ListNode l2) { // updated on Feb 6th, 2023
+        ListNode dummy = new ListNode();
+        ListNode temp = dummy;
+        int carry = 0; // init carry
+        // merge nodes
         while (l1 != null || l2 != null) {
-            int cur1 = 0;
-            int cur2 = 0;
+            int num1 = 0; // init num1
+            int num2 = 0; // init num2
+            if (l1 != null) num1 = l1.val;
+            if (l2 != null) num2 = l2.val;
 
-            if (l1 != null) {
-                cur1 = l1.val;
-                l1 = l1.next;
-            } else {
-                cur1 = 0;
-            }
+            ListNode newNode = new ListNode((num1 + num2 + carry) % 10); // store digit to the new node
+            carry = (num1 + num2 + carry) / 10; // cal carry
+            temp.next = newNode; // set next
+            temp = temp.next; // to next node
 
-            if (l2 != null) {
-                cur2 = l2.val;
-                l2 = l2.next;
-            } else {
-                cur2 = 0;
-            }
-
-            int cur = cur1 + cur2;
-
-
-            if (flag) {
-                cur += 1;
-                flag = false;
-            }
-
-            if (cur >= 10) {
-                cur -= 10;
-                flag = true;
-            }
-
-            ListNode newNode = new ListNode(cur);
-            tail.next = newNode;
-            tail = newNode;
+            if (l1 != null) l1 = l1.next; // traverse until l1 is empty
+            if (l2 != null) l2 = l2.next; // traverse until l2 is empty
+        }
+        // in case carry != 0
+        if (carry > 0) {
+            ListNode newNode = new ListNode(carry);
+            temp.next = newNode;
         }
 
-        if (flag) {
-            ListNode newNode = new ListNode(1);
-            tail.next = newNode;
-        }
-
-        return head.next;
+        return dummy.next;
     }
 
     public static void main(String[] args) {
@@ -60,7 +35,7 @@ public class AddTwoNums {
         ListNode l3 = addTwoNumbers(l1, l2);
 
         while (l3 != null) {
-            System.out.println(l3.val + " ");
+            System.out.print(l3.val);
             l3 = l3.next;
         }
     }
