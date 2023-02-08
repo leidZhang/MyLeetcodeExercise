@@ -2,10 +2,10 @@ package linkedlist;
 
 public class MergeTwoSortedList {
     public static void main(String[] args) {
-        int[] nums1 = {};
-        int[] nums2 = {};
-        ListNode head1 = null;
-        ListNode head2 = null;
+        int[] nums1 = {2,4};
+        int[] nums2 = {3,4};
+        ListNode head1 = new ListNode(1);
+        ListNode head2 = new ListNode(1);
 
         assemble(head1, nums1);
         assemble(head2, nums2);
@@ -17,40 +17,24 @@ public class MergeTwoSortedList {
     }
 
     public static ListNode mergeTwoLists(ListNode list1, ListNode list2) {
-        ListNode head = null;
-        ListNode cur = null;
+        ListNode dummy = new ListNode();
+        ListNode cur = dummy;
 
         while (list1 != null || list2 != null) {
-            int val;
+            int val1 = (list1 != null) ? list1.val : Integer.MAX_VALUE; // set to max value to avoid exception
+            int val2 = (list2 != null) ? list2.val : Integer.MAX_VALUE;
 
-            if (list1 != null && list2 != null) {
-                if (list1.val <= list2.val) {
-                    val = list1.val;
-                    list1 = list1.next;
-                } else {
-                    val = list2.val;
-                    list2 = list2.next;
-                }
-            } else if (list1 == null) {
-                val = list2.val;
-                list2 = list2.next;
-            } else {
-                val = list1.val;
+            if (val1 < val2) {
+                cur.next = new ListNode(val1);
                 list1 = list1.next;
+            } else {
+                cur.next = new ListNode(val2);
+                list2 = list2.next;
             }
-
-            if (head == null) {
-                head = new ListNode(val);
-                cur = head;
-                continue;
-            }
-
-            ListNode newNode = new ListNode(val);
-            cur.next = newNode;
-            cur = newNode;
+            cur = cur.next;
         }
 
-        return head;
+        return dummy.next;
     }
 
     public static void printLinkedList(ListNode head) {
