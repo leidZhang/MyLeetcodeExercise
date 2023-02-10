@@ -9,7 +9,7 @@ public class MinCostClimbStairs {
         System.out.println(minCostClimbingStairs(cost));
     }
 
-    public static int minCostClimbingStairs(int[] cost) { // we have to find the min cost to position cost.length
+    public static int minCostClimbingStairs(int[] cost) { // we have to find the min cost to the position cost.length
         List<Integer> dp = new ArrayList<>(); // cost when get to ith stair, dp[i] = dp[i-1] + cost[i-1] or dp[i] = dp[i-2] + cost[i-2]
         dp.add(0); dp.add(0); // dp[0] = 0, dp[1] = 0, since we can either stand at 0 or 1
 

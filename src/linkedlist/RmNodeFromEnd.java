@@ -20,37 +20,24 @@ public class RmNodeFromEnd {
         }
     }
 
-    public static ListNode removeNthFromEnd(ListNode head, int n) {
-        ListNode temp = head;
-        ListNode prev = head;
-        int count = 0;
-
-        while (temp != null) {
-            temp = temp.next;
-            count++;
+    public static ListNode removeNthFromEnd(ListNode head, int n) { // modified on Feb 9th 2023
+        ListNode dummy = new ListNode();
+        dummy.next = head;
+        // find the position
+        int cnt = 0;
+        ListNode slow = dummy; // slow pointer
+        ListNode fast = dummy; // fast pointer
+        while (fast != null) {
+            if (cnt >= n+1) slow = slow.next; // slow pointer will stop at n+1th node from tail
+            fast = fast.next;
+            cnt++;
         }
+        // delete operation
+        ListNode cur = slow.next;
+        ListNode next = cur.next;
+        slow.next = next;
 
-        if (count == 1 && n == 1) { // when only 1 element
-            return null;
-        }
-
-        int idx = count - n;
-
-        while (idx > 1) {
-            prev = prev.next;
-            idx--;
-        }
-
-        if (n != 1 && count != n) { // general cases
-            ListNode next = prev.next.next;
-            prev.next = next;
-        } else if (n == 1) { // when delete tail node
-            prev.next = null;
-        } else { // when delete head node
-            head = head.next;
-        }
-
-        return head;
+        return dummy.next;
     }
     public static class ListNode {
         int val;

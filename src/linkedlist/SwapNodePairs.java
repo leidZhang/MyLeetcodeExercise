@@ -24,8 +24,10 @@ public class SwapNodePairs {
             right.next = left;
 
             cur = left;
-            if (cur.next == null) break; else left = cur.next;
-            if (left.next == null) break; else right = left.next;
+            if (cur.next == null) break;
+            else left = cur.next;
+            if (left.next == null) break;
+            else right = left.next;
         }
 
         return head.next;
