@@ -15,6 +15,6 @@ public class VerControl {
     }
 
     private boolean isBadVersion(int mid) { // placeholder method
-        return false;
+        return true;
     }
 }
