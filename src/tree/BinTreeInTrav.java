@@ -6,9 +6,12 @@ import java.util.Stack;
 
 public class BinTreeInTrav {
     public static void main(String[] args) {
-        TreeNode root = new TreeNode(1);
-        root.right = new TreeNode(2);
-        root.right.left = new TreeNode(3);
+        TreeNode root = new TreeNode(3);
+        root.left = new TreeNode(4);
+        root.right = new TreeNode(6);
+        root.left.left = new TreeNode(5);
+        root.left.right = new TreeNode(1);
+        root.left.left.right = new TreeNode(2);
         System.out.println(inorderTraversal(root));
     }
 
