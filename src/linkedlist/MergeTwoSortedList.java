@@ -12,8 +12,32 @@ public class MergeTwoSortedList {
         // printLinkedList(head1);
         // printLinkedList(head2);
 
-        ListNode head = mergeTwoLists(head1, head2);
+        ListNode head = mergeTwoLists2(head1, head2);
         printLinkedList(head);
+    }
+
+    public static ListNode mergeTwoLists2(ListNode list1, ListNode list2) {
+        ListNode dummy = new ListNode();
+        ListNode cur = dummy;
+
+        while (list1 != null || list2 != null) {
+            int val1 = (list1 != null) ? list1.val : Integer.MAX_VALUE;
+            int val2 = (list2 != null) ? list2.val : Integer.MAX_VALUE;
+
+            int val = 0;
+            if (val1 > val2) {
+                val = val2;
+                list2 = list2.next;
+            } else {
+                val = val1;
+                list1 = list1.next;
+            }
+
+            cur.next = new ListNode(val);
+            cur = cur.next;
+        }
+
+        return dummy.next;
     }
 
     public static ListNode mergeTwoLists(ListNode list1, ListNode list2) {

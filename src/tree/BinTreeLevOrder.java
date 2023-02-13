@@ -12,7 +12,33 @@ public class BinTreeLevOrder {
         root.right = new TreeNode(20);
         root.right.left = new TreeNode(15);
         root.right.right = new TreeNode(7);
-        System.out.println(levelOrder(root));
+        System.out.println(levelOrder2(root));
+    }
+
+    public static List<List<Integer>> levelOrder2(TreeNode root) { // bfs
+        if (root == null) return new ArrayList<>();
+
+        List<List<Integer>> res = new ArrayList<>();
+        Queue<TreeNode> q = new LinkedList<>();
+
+        q.add(root);
+        while (!q.isEmpty()) {
+            int size = q.size();
+            List<Integer> level = new ArrayList<>();
+
+            while (size != 0) {
+                TreeNode cur = q.poll();
+                level.add(cur.val);
+
+                if (cur.left != null) q.add(cur.left);
+                if (cur.right != null) q.add(cur.right);
+                size--;
+            }
+
+            res.add(new ArrayList<>(level));
+        }
+
+        return res;
     }
 
     public static List<List<Integer>> levelOrder(TreeNode root) {
