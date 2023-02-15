@@ -1,6 +1,6 @@
 package greedy;
 
-public class BestTimeStock {
+public class BestTimeStockG {
     public int maxProfit(int[] prices) {
         int res = 0, buy = prices[0];
 

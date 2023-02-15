@@ -2,17 +2,21 @@ package array;
 
 public class MoveZeros {
     public void moveZeroes(int[] nums) {
-        int[] res = new int[nums.length];
+        int fast = 0, slow = 0; // two pointers
 
-        int j = 0;
-        for (int i=0; i<nums.length; i++) {
-            if (nums[i] != 0) {
-                res[j++] = nums[i];
+        while (fast < nums.length) {
+            if (nums[fast] != 0) {
+                swap(nums, fast, slow);
+                slow++;
             }
-        }
-
-        for (int i=0; i<res.length; i++) {
-            nums[i] = res[i];
+            fast++;
         }
     }
+
+    private void swap(int[] nums, int i, int j) {
+        int temp = nums[i];
+        nums[i] = nums[j];
+        nums[j] = temp;
+    }
 }
+

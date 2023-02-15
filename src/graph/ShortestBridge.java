@@ -16,7 +16,7 @@ public class ShortestBridge {
     }
     /**
      * 1. use dfs find the start points
-     * grid[][]: 
+     * grid[][]:
      * 1 1 1 1 1        2 2 2 2 2
      * 1 0 0 0 1        2 0 0 0 2
      * 1 0 1 0 1   ->   2 0 1 0 2
@@ -95,7 +95,7 @@ public class ShortestBridge {
 
     private static void printMatrix(int[][] grid) { // debug method
         for (int i=0; i<n; i++) {
-            for (int j=0; j<n; j++) {
+            for (int j=0; j<m; j++) {
                 System.out.print(grid[i][j] + " ");
             }
             System.out.print("\n");

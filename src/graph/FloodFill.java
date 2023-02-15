@@ -5,7 +5,6 @@ public class FloodFill {
         int[][] image = {
                             {0,0,0},
                             {0,0,0},
-                            {0,0,0}
                         };
         image = floodFill(image, 1, 0, 2);
         printMatrix(image);
@@ -13,13 +12,11 @@ public class FloodFill {
     static int n; // rows
     static int m; // cols
     static int[][] dir = {{1,0},{-1,0},{0,1},{0,-1}};
-    static boolean[][] visited;
     static int initColor;
     static int newColor;
 
     public static int[][] floodFill(int[][] image, int sr, int sc, int color) {
         n = image.length; m = image[0].length;
-        visited = new boolean[n][m];
         initColor = image[sr][sc];
         newColor = color;
 
@@ -29,10 +26,9 @@ public class FloodFill {
     }
 
     private static void dfs(int[][] image, int i, int j) {
-        if (!isInRange(i, j) || visited[i][j]) return;
-        if (image[i][j] != initColor) return;
+        if (!isInRange(i, j) || image[i][j] != initColor) return;
+        if (image[i][j] == newColor) return;
 
-        visited[i][j] = true;
         image[i][j] = newColor;
         for (int k=0; k<4; k++) {
             int x = i + dir[k][0];
@@ -47,7 +43,7 @@ public class FloodFill {
 
     private static void printMatrix(int[][] grid) {
         for (int i=0; i<n; i++) {
-            for (int j=0; j<n; j++) {
+            for (int j=0; j<m; j++) {
                 System.out.print(grid[i][j] + " ");
             }
             System.out.print("\n");

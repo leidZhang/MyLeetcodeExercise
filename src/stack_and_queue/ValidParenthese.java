@@ -13,15 +13,15 @@ public class ValidParenthese {
 
         for (int i=0; i<s.length(); i++) {
             char cur = s.charAt(i);
-
+            // left parentheses
             if (cur == '{' || cur == '[' || cur == '(') {
                 buffer.push(cur);
                 continue;
             }
-
-            if (!buffer.isEmpty() && parentheseMatch(buffer.peek(), cur)) {
+            // right parentheses
+            if (!buffer.isEmpty() && parentheseMatch(buffer.peek(), cur)) { // match
                 buffer.pop();
-            } else {
+            } else { // not match
                 return false;
             }
         }
@@ -33,9 +33,6 @@ public class ValidParenthese {
     }
 
     private static boolean parentheseMatch(char peek, char cur) {
-        if (peek == '{' && cur == '}') return true;
-        if (peek == '[' && cur == ']') return true;
-        if (peek == '(' && cur == ')') return true;
-        return false;
+        return (peek=='(' && cur==')') || (peek == '{' && cur=='}') || (peek=='[' && cur==']');
     }
 }
