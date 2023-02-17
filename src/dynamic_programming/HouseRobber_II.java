@@ -19,10 +19,10 @@ public class HouseRobber_II {
             robHead[i] = nums[i];
         }
 
-        int valHead = robHelper(robHead);
-        int valTail = robHelper(robTail);
+        int maxHead = robHelper(robHead);
+        int maxTail = robHelper(robTail);
 
-        return Math.max(valHead, valTail);
+        return Math.max(maxHead, maxTail);
     }
 
     public int robHelper(int[] nums) {

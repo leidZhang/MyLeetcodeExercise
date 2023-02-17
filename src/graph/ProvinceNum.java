@@ -24,11 +24,12 @@ public class ProvinceNum {
         return cnt;
     }
 
-    private static void dfs(int[][] isConnected, int i, boolean[] visited) { // use dfs to find the connected
-        visited[i] = true;
+    private static void dfs(int[][] isConnected, int i, boolean[] visited) {
+        if(visited[i]) return;
 
-        for (int j=0; j<isConnected.length; j++) {
-            if (isConnected[i][j] == 1 && !visited[j]) {
+        visited[i] = true;
+        for (int j=0; j<isConnected[i].length; j++) {
+            if (isConnected[i][j] == 1) {
                 dfs(isConnected, j, visited);
             }
         }
