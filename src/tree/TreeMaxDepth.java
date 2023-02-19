@@ -10,16 +10,13 @@ public class TreeMaxDepth {
         System.out.println(maxDepth(root));
     }
 
-    public static int maxDepth(TreeNode root) {
-        return calHeight(root);
-    }
+    public static int maxDepth(TreeNode root) { // dfs
+        if (root == null) return 0;
 
-    public static int calHeight(TreeNode root) { // height = depth
-        if (root == null) return 0; // height of a leaf node is 1
+        int leftHeight = maxDepth(root.left);
+        int rightHeight = maxDepth(root.right);
 
-        int leftHight = calHeight(root.left);
-        int rightHeight = calHeight(root.right);
-        return Math.max(leftHight, rightHeight) + 1;
+        return Math.max(leftHeight, rightHeight) + 1;
     }
 
     static class TreeNode {

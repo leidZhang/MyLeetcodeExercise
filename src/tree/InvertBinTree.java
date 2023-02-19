@@ -13,14 +13,18 @@ public class InvertBinTree {
     }
 
     public static TreeNode invertTree(TreeNode root) {
+        if (root == null) return root;
         preorder(root);
         return root;
     }
 
-    public static void preorder(TreeNode root) {
-        if (root == null) return; // stop when get to the leaf node
+    private static void preorder(TreeNode root) {
+        if (root == null) return;
 
-        swapNode(root); // node operation
+        TreeNode left = root.left;
+        TreeNode right = root.right;
+        root.left = right;
+        root.right = left;
         if (root.left != null) preorder(root.left);
         if (root.right != null) preorder(root.right);
     }

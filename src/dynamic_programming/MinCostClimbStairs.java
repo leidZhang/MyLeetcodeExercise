@@ -6,7 +6,19 @@ import java.util.List;
 public class MinCostClimbStairs {
     public static void main(String[] args) {
         int[] cost = {1,100,1,1,1,100,1,1,100,1};
-        System.out.println(minCostClimbingStairs(cost));
+        System.out.println(minCostClimbingStairs2(cost));
+    }
+
+    public static int minCostClimbingStairs2(int[] cost) {
+        int n = cost.length;
+        int[] dp = new int[n+1];
+        dp[0] = 0; dp[1] = 0; // start at 0 or 1
+
+        for (int i=2; i<=n; i++) { // we should get to nth position
+            dp[i] = Math.min(dp[i-1] + cost[i-1], dp[i-2] + cost[i-2]); // jump from i-1 and pay cost[i-1], or i-2 and pay cost[i-2]
+        }
+
+        return dp[n];
     }
 
     public static int minCostClimbingStairs(int[] cost) { // we have to find the min cost to the position cost.length
