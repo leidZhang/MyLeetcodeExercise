@@ -15,22 +15,17 @@ public class TwoSumHT {
     }
 
     public static int[] twoSum(int[] nums, int target) {
-        int[] res = new int[2];
-        Map<Integer, Integer> map = new HashMap<>(); // nums[i] as key, i as value
+        Map<Integer, Integer> map = new HashMap<>();
 
         for (int i=0; i<nums.length; i++) {
-            if (!map.containsKey(nums[i])) {
-                map.put(nums[i], i);
-            }
+            if (!map.containsKey(nums[i])) map.put(nums[i], i);
 
             int rest = target - nums[i];
             if (map.containsKey(rest) && i != map.get(rest)) {
-                res[0] = map.get(rest);
-                res[1] = i;
-                return res;
+                return new int[]{i, map.get(rest)};
             }
         }
 
-        return res;
+        return new int[2];
     }
 }
