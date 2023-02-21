@@ -6,12 +6,12 @@ import java.util.List;
 public class ValidBST {
     static TreeNode pre = null;
 
-    public static boolean isValidBST(TreeNode root) { // two pointers
+    public static boolean isValidBST(TreeNode root) { // two pointers, inorder traversal
         if (root == null) return true;
 
         boolean left = isValidBST(root.left);
         if (pre != null && pre.val >= root.val) return false;
-        pre = root;
+        pre = root; // previous node
         boolean right = isValidBST(root.right);
 
         return left && right;

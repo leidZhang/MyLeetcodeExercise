@@ -1,8 +1,8 @@
-package stack_and_queue;
+package heap;
 
 import java.util.*;
 
-public class TopKFreq {
+public class TopKFreqNum {
     public static void main(String[] args) {
         int[] nums = {1,1,1,2,2,3}; int k = 2;
         int[] ans = topKFrequent(nums, k);

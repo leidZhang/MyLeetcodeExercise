@@ -1,6 +1,21 @@
 package tree;
 
 public class LowestComAncestor {
+    public TreeNode lowestCommonAncestor2(TreeNode root, TreeNode p, TreeNode q) {
+        if (root == null) return null;
+
+        if (root.val > p.val && root.val > q.val) { // p q in the left subtree
+            TreeNode left = lowestCommonAncestor(root.left, p, q); // go to left subtree
+            if (left != null) return left; // find p or q
+        }
+        if (root.val < p.val && root.val < q.val) { // p q in the right subtree
+            TreeNode right = lowestCommonAncestor(root.right, p, q); // go to right subtree
+            if (right != null) return right; // find p or q
+        }
+
+        return root;
+    }
+
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
         if (root == null) return null;
         if (root.equals(p) || root.equals(q)) return root;
