@@ -1,4 +1,4 @@
-package array;
+package twopointers;
 
 public class MoveZeros {
     public void moveZeroes(int[] nums) {

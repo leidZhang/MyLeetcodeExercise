@@ -1,4 +1,4 @@
-package array;
+package twopointers;
 
 public class SqSortedArr {
     public static void main(String[] args) {
@@ -16,7 +16,7 @@ public class SqSortedArr {
         int k = nums.length - 1; // res pointer
         int l = 0, r = nums.length - 1;
 
-        while (l <= r) { // double pointers
+        while (l <= r) { // two pointers
             if (nums[l] * nums[l] >= nums[r] * nums[r]) {
                 res[k--] = nums[l] * nums[l]; l++;
             } else {

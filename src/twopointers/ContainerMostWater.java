@@ -1,4 +1,4 @@
-package greedy;
+package twopointers;
 
 public class ContainerMostWater {
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package array;
+package twopointers;
 
 public class MatrixDiagonalSum {
     public int diagonalSum(int[][] mat) {

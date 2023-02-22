@@ -1,4 +1,4 @@
-package array;
+package twopointers;
 
 public class TwoSum_II {
     public int[] twoSum(int[] numbers, int target) {
