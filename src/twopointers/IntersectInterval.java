@@ -10,8 +10,9 @@ public class IntersectInterval {
         int[][] res = intervalIntersection(firstList, secondList);
 
         for (int[] intersect : res) {
-            System.out.println(intersect[0] + "," + intersect[1]);
+            System.out.print("[" + intersect[0] + "," + intersect[1] + "] ");
         }
+        System.out.print("\n");
     }
 
     public static int[][] intervalIntersection(int[][] firstList, int[][] secondList) {

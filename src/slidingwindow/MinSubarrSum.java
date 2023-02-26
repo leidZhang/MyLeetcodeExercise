@@ -6,7 +6,22 @@ public class MinSubarrSum {
     public static void main(String[] args) {
         int target = 15;
         int[] nums = {1,2,3,4,5};
-        System.out.println(minSubArrayLen(target, nums));
+        System.out.println(minSubArrayLen2(target, nums));
+    }
+
+    public static int minSubArrayLen2(int target, int[] nums) {
+        int minLen = Integer.MAX_VALUE;
+
+        int j = 0, sum = 0;
+        for (int i=0; i<nums.length; i++) {
+            sum += nums[i];
+            while (j <= i && sum >= target) {
+                minLen = Math.min(minLen, i - j + 1);
+                sum -= nums[j++];
+            }
+        }
+
+        return (minLen != Integer.MAX_VALUE) ? minLen : 0;
     }
 
     public static int minSubArrayLen(int target, int[] nums) {
