@@ -7,7 +7,7 @@ public class SubArrProdLessK {
         int j = 0, prod = 1; // j is slide window left bound
         for (int i=0; i<nums.length; i++) { // slide window right bound
             prod *= nums[i];
-            while (j < i && prod >= k) { // j should not larger than i
+            while (j <= i && prod >= k) { // j should not larger than i
                 prod /= nums[j++]; // do not use if !!!
             }
             if (prod < k) {

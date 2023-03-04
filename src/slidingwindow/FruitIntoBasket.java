@@ -17,12 +17,10 @@ public class FruitIntoBasket {
 
         for (int i=0; i<fruits.length; i++) { // i is the right pointer
             map.put(fruits[i], map.getOrDefault(fruits[i], 0) + 1);
-            if (map.size() > 2) {
-                while (map.size() > 2) { // we have to make sure the size of map is 2
-                    map.put(fruits[j], map.get(fruits[j]) - 1);
-                    if (map.get(fruits[j]) == 0) map.remove(fruits[j]); // delete from map
-                    j++; // go right
-                }
+            while (map.size() > 2) { // we have to make sure the size of map is 2
+                map.put(fruits[j], map.get(fruits[j]) - 1);
+                if (map.get(fruits[j]) == 0) map.remove(fruits[j]); // delete from map
+                j++; // go right
             }
             res = Math.max(res, i - j + 1); // i - j + 1 is the number of fruit
         }

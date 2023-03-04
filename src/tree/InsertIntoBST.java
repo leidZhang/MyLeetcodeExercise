@@ -15,7 +15,7 @@ public class InsertIntoBST {
         return root;
     }
 
-    static class TreeNode {
+    class TreeNode {
         int val;
         TreeNode left;
         TreeNode right;
