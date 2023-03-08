@@ -7,7 +7,24 @@ public class WordPattern {
     public static void main(String[] args) {
         String pattern = "abba";
         String s = "dog dog dog dog";
-        System.out.println(wordPattern(pattern, s));
+        System.out.println(wordPattern2(pattern, s));
+    }
+
+    public static boolean wordPattern2(String pattern, String s) {
+        String[] seq = s.split(" ");
+        if (seq.length != pattern.length()) return false;
+        Map<Character, String> map = new HashMap<>();
+
+        char[] pat = pattern.toCharArray();
+        for (int i=0; i<pat.length; i++) {
+            if (!map.containsKey(pat[i]) && !map.containsValue(seq[i])) {
+                map.put(pat[i], seq[i]);
+            } else {
+                if (!seq[i].equals(map.get(pat[i]))) return false;
+            }
+        }
+
+        return true;
     }
 
     public static boolean wordPattern(String pattern, String s) {
