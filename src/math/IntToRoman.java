@@ -49,51 +49,39 @@ public class IntToRoman {
             if (num >= 1000) {
                 res += "M";
                 num -= 1000;
-                continue;
             } else if (num >= 900) {
                 res += "CM";
                 num -= 900;
-                continue;
             } else if (num >= 500) {
                 res += "D";
                 num -= 500;
-                continue;
             } else if (num >= 400) {
                 res += "CD";
                 num -= 400;
-                continue;
             } else if (num >= 100) {
                 res += "C";
                 num -= 100;
-                continue;
             } else if (num >= 90) {
                 res += "XC";
                 num -= 90;
-                continue;
             } else if (num >= 50) {
                 res += "L";
                 num -= 50;
-                continue;
             } else if (num >= 40) {
                 res += "XL";
                 num -= 40;
-                continue;
             } else if (num >= 10) {
                 res += "X";
                 num -= 10;
-                continue;
             } else if (num >= 9) {
                 res += "IX";
                 num -= 9;
-                continue;
             } else if (num >= 5) {
                 res += "V";
                 num -= 5;
-                continue;
             } else if (num >= 4) {
                 res += "IV";
                 num -= 4;
-                continue;
             } else {
                 res += "I";
                 num -= 1;

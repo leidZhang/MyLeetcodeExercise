@@ -13,13 +13,13 @@ public class SubArrSumK {
             prefix[i] = prefix[i-1] + nums[i];
         }
 
-        Map<Integer, Integer> map = new HashMap<>(); // prefix[i], times
+        Map<Integer, Integer> map = new HashMap<>(); // prefix[i], num of prefix[i]
         int cnt = 0; map.put(0, 1);
-        for (int i=0; i<n; i++) { // similar to TwoSum
-            if (map.containsKey(prefix[i] - k)) {
+        for (int i=0; i<n; i++) { // prefix[i] - prefix[j] = sum of the subarray from i to j
+            if (map.containsKey(prefix[i] - k)) { // we have to find a prefix[i] - prefix[j] = k
                 cnt += map.get(prefix[i] - k);
             }
-            map.put(prefix[i], map.getOrDefault(prefix[i], 0) + 1);
+            map.put(prefix[i], map.getOrDefault(prefix[i], 0) + 1); // add to map
         }
 
         return cnt;

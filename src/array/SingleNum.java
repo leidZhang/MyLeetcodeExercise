@@ -3,6 +3,16 @@ package array;
 import java.util.Arrays;
 
 public class SingleNum {
+    public int singleNumber(int[] nums) {
+        int res = 0;
+
+        for (int i=0; i<nums.length; i++) {
+            res = res ^ nums[i];
+        }
+
+        return res;
+    }
+
     public int singleNumberBF(int[] nums) {
         Arrays.sort(nums);
 
